@@ -1,0 +1,6 @@
+n = input('n = ');
+P = [1, zeros(1, n-2), [-n], [0], n, zeros(1, n-2), -1];
+rts = intersect(roots(P), roots(polyder(P)))                        ##т.к. результат отсортирован по возрастанию
+x = linspec(rts(1), rts(length(rts)), 100)
+F = polyval(P, x)
+plot(x, F, rts, polyval(P, rts), '*')
