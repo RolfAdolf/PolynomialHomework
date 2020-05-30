@@ -1,0 +1,23 @@
+1)
+P = [1 -6 15 -14];
+R1 = []
+R = roots(P);
+for i=1:length(R) 
+if (isreal(R(i)))
+R1 = [R1, R(i)]
+end
+end
+x = linspace(min(R1)-2, max(R1)+2, 150);
+plot(x, polyval(P, x), roots(P), 0.*roots(P), '*')
+
+2)
+P = [10 -13 15 -18 -24];
+R1 = []
+R = roots(P);
+for i=1:length(R) 
+if (isreal(R(i)))
+R1 = [R1, R(i)]
+end
+end
+x = linspace(min(R1)-2, max(R1)+2, 150);
+plot(x, polyval(P, x), roots(P), 0.*roots(P), '*')
