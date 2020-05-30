@@ -1,0 +1,5 @@
+n = input('n = ');
+syms 't';
+A = randi(n, n);
+F = det(A - eye(n)*t);
+subs(F, A)
