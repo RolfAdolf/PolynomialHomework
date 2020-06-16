@@ -8,7 +8,7 @@ R1 = [R1, R(i)]
 end
 end
 x = linspace(min(R1)-2, max(R1)+2, 150);
-plot(x, polyval(P, x), roots(P), 0.*roots(P), '*')
+plot(x, polyval(P, x), R1, 0.*R1, '*')
 
 2)
 P = [10 -13 15 -18 -24];
@@ -20,4 +20,4 @@ R1 = [R1, R(i)]
 end
 end
 x = linspace(min(R1)-2, max(R1)+2, 150);
-plot(x, polyval(P, x), roots(P), 0.*roots(P), '*')
+plot(x, polyval(P, x), R1, 0.*R1, '*')
