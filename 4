@@ -1,6 +1,15 @@
 n = input('n = ');
 P = [1, zeros(1, n-2), [-n], [0], n, zeros(1, n-2), -1];
-rts = intersect(roots(P), roots(polyder(P)))                        ##т.к. результат отсортирован по возрастанию
-x = linspec(rts(1), rts(length(rts)), 100)
-F = polyval(P, x)
-plot(x, F, rts, polyval(P, rts), '*')
+
+rts = roots(P);
+realroots = rts((imag(roots(P)) == 0));
+
+polrts = roots(polyder(P));
+realpolroots = real(polrts(abs(imag(polrts)) < 1e-5));
+finalroots = intersect(round(realroots*100000)/100000, round(realpolroots*100000)/100000);
+Rmin = -1 +min(finalroots);
+Rmax = 1+max(finalroots);
+x = linspace(Rmin, Rmax, round(abs(Rmax - Rmin))/0.01);
+y = polyval(P, x);
+plot(x, y, finalroots, 0, '*');
+grid on;
