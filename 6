@@ -1,8 +1,19 @@
 n = input('n = ');
 x = [1:1:n];
 y = 1./x;
-P = polyfit(x, y, n);
-R = sort(roots(P));
-x = linspace(R(1)-1, R(length(R))+1, 150);
-F = polyval(P, x);
-plot(x,  F);
+P = inv(vander(x))*y';
+Y = polyval(P, x);
+R=max(abs(real(roots(P))));
+X = linspace(R-1, R+1, 150);
+F = polyval(P, X);
+plot(X,  F);
+
+
+x = [-1 0 1 2 3];
+y = [6 5 0 3 2];
+P = inv(vander(x))*y';
+Y = polyval(P, x);
+R=max(abs(real(roots(P))));
+X = linspace(R-1, R+1, 150);
+F = polyval(P, X);
+plot(X,  F);
