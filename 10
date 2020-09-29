@@ -1,4 +1,4 @@
 P = poly(eye(100));
-x = linspace(-10, 10, 100);
+x = linspace(-2, 6, 100);
 F = polyval(P, x);
-plot(x, F);
+plot(x, F, roots(P), 0, '*');
