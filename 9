@@ -1,11 +1,15 @@
 1)
 P = [1 2 -1 -4 -2];
 Q = [1 1 -1 -2 -2];
-gcd(P, Q);
+[G, S, T]=gcd(poly2sym(P), poly2sym(Q));
+G
+poly2sym(conv(P, sym2poly(S)) + conv(Q, sym2poly(T)))
 
 
 
 2)
 P = [1 -1 -4 4 1];
 Q = [1 -1 -1];
-gcd(P, Q);
+[G, S, T]=gcd(poly2sym(P), poly2sym(Q));
+G
+poly2sym(conv(P, sym2poly(S)) + conv(Q, sym2poly(T)))
